@@ -1,8 +1,7 @@
 import os
 import redis
 
-REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
-REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
-REDIS_DB = int(os.getenv("REDIS_DB", 0))
+redis_host = os.getenv("REDIS_HOST", "localhost")  # Usa la variable de entorno
+redis_port = int(os.getenv("REDIS_PORT", 6379))     # Usa la variable de entorno
 
-redis_client = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB, decode_responses=True)
+redis_client = redis.Redis(host=redis_host, port=redis_port)
