@@ -5,13 +5,13 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Copiar el archivo de requerimientos e instalar dependencias
-COPY ./lrequenaTest/requirements.txt .
+COPY requirements.txt .
 
 # Instalar dependencias
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar el resto del código fuente
-COPY ./lrequenaTest .
+COPY . .
 
 # Exponer el puerto en el que FastAPI se ejecutará
 EXPOSE 8000
