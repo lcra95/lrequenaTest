@@ -106,7 +106,7 @@ def build_agent_endpoint(agent_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail="Agent is not active")
     agent = build_agent(agent_db, db)
     running_agents[agent_id] = {"agent": agent}
-    redis_client.setex(f"agent:{agent_id}", 600, "active")
+    redis_client.setex(f"agent:{agent_id}", 3600, "active")
     return {"message": f"Agent {agent_id} built and ready in memory."}
 
 
